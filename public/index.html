@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giriş — Yeni Doğan Bakım Akademisi</title>
+    <meta name="description" content="Yenidoğan bakımı eğitim videoları ile ilerlemenizi takip edin." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <section class="auth-hero">
+        <a class="brand" href="/index.html">
+          <span class="brand-logo">👶</span>
+          <span class="brand-text">
+            Yeni Doğan Bakım Akademisi
+            <span>Anne eğitim platformu</span>
+          </span>
+        </a>
+        <h1>Yenidoğan bakımında kendinizi güvende hissedin.</h1>
+        <p>
+          Uzman eğitim videolarını konu konu izleyin, nerede kaldığınızı görün ve
+          bebeğinizle geçireceğiniz ilk günlere hazır hissedin.
+        </p>
+        <ul class="hero-list">
+          <li><span class="tick">✓</span><span>6 temel konu, adım adım ilerleyen video eğitimleri</span></li>
+          <li><span class="tick">✓</span><span>İzlediğiniz süre otomatik kaydedilir, kaldığınız yerden devam edersiniz</span></li>
+          <li><span class="tick">✓</span><span>Konu bazlı ilerleme takibi ve tamamlanma rozetleri</span></li>
+          <li><span class="tick">✓</span><span>Telefon, tablet ve bilgisayardan rahat kullanım</span></li>
+        </ul>
+      </section>
+
+      <section class="auth-form-side">
+        <div class="auth-card">
+          <h2>Hoş geldiniz</h2>
+          <p class="sub">Devam etmek için size verilen kullanıcı adı ve şifre ile giriş yapın.</p>
+
+          <div id="login-alert" class="alert error hidden" role="alert"></div>
+
+          <form id="login-form" novalidate>
+            <div class="field">
+              <label for="username">Kullanıcı adı</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                autocomplete="username"
+                autocapitalize="none"
+                spellcheck="false"
+                placeholder="ör. ayse.yilmaz"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="password">Şifre</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+            <button class="btn block" type="submit" id="login-submit">Giriş yap</button>
+          </form>
+
+          <p class="auth-footnote">
+            Şifrenizi bilmiyorsanız eğitim sorumlunuz (yönetici) ile iletişime geçin.
+            Yönetici hesabı ilk girişten sonra şifresini değiştirmelidir.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

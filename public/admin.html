@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yönetim Paneli — Yeni Doğan Bakım Akademisi</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar" data-topbar></header>
+
+    <main class="container">
+      <div id="page-alert" class="alert error hidden" role="alert"></div>
+
+      <section class="page-head">
+        <span class="eyebrow">Yönetim</span>
+        <h1>Yönetim paneli</h1>
+        <p class="muted small">
+          Kullanıcıları, eğitim konularını ve videoları buradan yönetebilir, ilerleme raporunu
+          görüntüleyebilirsiniz.
+        </p>
+      </section>
+
+      <nav class="admin-tabs" id="admin-tabs">
+        <button class="admin-tab active" type="button" data-tab="overview">Genel bakış</button>
+        <button class="admin-tab" type="button" data-tab="users">Kullanıcılar</button>
+        <button class="admin-tab" type="button" data-tab="topics">Konular</button>
+        <button class="admin-tab" type="button" data-tab="videos">Videolar</button>
+        <button class="admin-tab" type="button" data-tab="report">Rapor</button>
+      </nav>
+
+      <section data-panel="overview">
+        <div class="stat-cards" id="overview-stats"></div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Platform ayarları</h2>
+          </div>
+          <form id="settings-form" class="inline-form">
+            <div class="field">
+              <label for="setting-title">Site başlığı</label>
+              <input type="text" id="setting-title" maxlength="80" />
+            </div>
+            <div class="field">
+              <label for="setting-threshold">Tamamlanma eşiği (%)</label>
+              <input type="number" id="setting-threshold" min="1" max="100" />
+              <div class="hint">Bir video süresinin bu yüzdesi izlendiğinde tamamlanır.</div>
+            </div>
+            <div class="field">
+              <button class="btn" type="submit">Ayarları kaydet</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section data-panel="users" hidden>
+        <div class="split">
+          <div class="card">
+            <div class="card-header">
+              <h3 id="user-form-title">Yeni kullanıcı ekle</h3>
+            </div>
+            <form id="user-form">
+              <input type="hidden" id="user-id" />
+              <div class="field">
+                <label for="user-username">Kullanıcı adı</label>
+                <input type="text" id="user-username" autocomplete="off" required />
+                <div class="hint">3-32 karakter: harf, rakam, nokta, alt çizgi, tire.</div>
+              </div>
+              <div class="field">
+                <label for="user-fullname">Ad soyad</label>
+                <input type="text" id="user-fullname" autocomplete="off" />
+              </div>
+              <div class="field">
+                <label for="user-password">Şifre</label>
+                <input type="password" id="user-password" autocomplete="new-password" />
+                <div class="hint" id="user-password-hint">En az 6 karakter.</div>
+              </div>
+              <div class="field">
+                <label for="user-role">Yetki</label>
+                <select id="user-role">
+                  <option value="user">Anne (kullanıcı)</option>
+                  <option value="admin">Yönetici</option>
+                </select>
+              </div>
+              <div class="btn-row">
+                <button class="btn" type="submit" id="user-submit">Kullanıcı ekle</button>
+                <button class="btn light" type="button" id="user-cancel" hidden>Vazgeç</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Kullanıcılar</h3>
+              <input type="search" id="user-search" placeholder="Kullanıcı ara…" style="max-width: 220px" />
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Kullanıcı</th>
+                    <th>Yetki</th>
+                    <th>Durum</th>
+                    <th>İlerleme</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="users-body">
+                  <tr><td colspan="5" class="muted">Yükleniyor…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-panel="topics" hidden>
+        <div class="split">
+          <div class="card">
+            <div class="card-header">
+              <h3 id="topic-form-title">Yeni konu ekle</h3>
+            </div>
+            <form id="topic-form">
+              <input type="hidden" id="topic-id" />
+              <div class="field">
+                <label for="topic-title">Konu başlığı</label>
+                <input type="text" id="topic-title" maxlength="120" required />
+              </div>
+              <div class="field">
+                <label for="topic-description">Açıklama</label>
+                <textarea id="topic-description" maxlength="400"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="topic-icon">Simge (emoji)</label>
+                  <input type="text" id="topic-icon" maxlength="4" placeholder="👶" />
+                </div>
+                <div class="field">
+                  <label for="topic-order">Sıra</label>
+                  <input type="number" id="topic-order" min="1" />
+                </div>
+              </div>
+              <div class="btn-row">
+                <button class="btn" type="submit" id="topic-submit">Konu ekle</button>
+                <button class="btn light" type="button" id="topic-cancel" hidden>Vazgeç</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Konular</h3>
+              <span class="badge" id="topic-total">0 konu</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sıra</th>
+                    <th>Konu</th>
+                    <th>Video</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="topics-body">
+                  <tr><td colspan="4" class="muted">Yükleniyor…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-panel="videos" hidden>
+        <div class="split">
+          <div class="card">
+            <div class="card-header">
+              <h3 id="video-form-title">Yeni video ekle</h3>
+            </div>
+            <form id="video-form">
+              <input type="hidden" id="video-id" />
+              <div class="field">
+                <label for="video-topic">Konu</label>
+                <select id="video-topic" required></select>
+              </div>
+              <div class="field">
+                <label for="video-title">Video başlığı</label>
+                <input type="text" id="video-title" maxlength="140" required />
+              </div>
+              <div class="field">
+                <label for="video-url">Video bağlantısı</label>
+                <input type="url" id="video-url" placeholder="https://drive.google.com/file/d/…" required />
+                <div class="hint">
+                  Google Drive, OneDrive, YouTube, Vimeo veya doğrudan mp4 bağlantısı olabilir.
+                </div>
+              </div>
+              <div class="field">
+                <label for="video-description">Açıklama</label>
+                <textarea id="video-description" maxlength="600"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="video-duration">Süre (saniye)</label>
+                  <input type="number" id="video-duration" min="1" value="300" />
+                </div>
+                <div class="field">
+                  <label for="video-order">Sıra</label>
+                  <input type="number" id="video-order" min="1" />
+                </div>
+              </div>
+              <div class="btn-row">
+                <button class="btn" type="submit" id="video-submit">Video ekle</button>
+                <button class="btn light" type="button" id="video-cancel" hidden>Vazgeç</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Videolar</h3>
+              <span class="badge" id="video-total">0 video</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Video</th>
+                    <th>Konu</th>
+                    <th>Sağlayıcı</th>
+                    <th>Süre</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="videos-body">
+                  <tr><td colspan="5" class="muted">Yükleniyor…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-panel="report" hidden>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2>İlerleme raporu</h2>
+              <p class="muted small" style="margin: 0">
+                Kullanıcıların konu bazlı tamamlanma durumu.
+              </p>
+            </div>
+            <div class="btn-row">
+              <button class="btn light small" type="button" id="report-refresh">Yenile</button>
+              <button class="btn small" type="button" id="report-csv">CSV indir</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="report-table">
+              <thead id="report-head"></thead>
+              <tbody id="report-body">
+                <tr><td class="muted">Yükleniyor…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-footer></footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
+

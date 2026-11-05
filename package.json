@@ -1,0 +1,17 @@
+{
+  "name": "yenidogan-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Yenidogan bakim egitimi video platformu (HTML5 + CSS + Node.js, sifreli dosya veritabani)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node scripts/smoke-test.js",
+    "check:html": "node scripts/check-html.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

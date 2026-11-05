@@ -1,0 +1,18 @@
+# Sifreleme anahtari ve veri dosyalari ASLA paylasilmamali
+data/secret.key
+data/data.enc
+data/data.enc.bak
+data/data.enc.tmp
+
+# Calisma gunlukleri
+*.log
+
+# Gecici/test ciktilari
+*-out.txt
+*.tmp
+
+# Isletim sistemi / editor
+Thumbs.db
+.DS_Store
+.vscode/
+node_modules/

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>İlerlemem — Yeni Doğan Bakım Akademisi</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar" data-topbar></header>
+
+    <main class="container">
+      <div id="page-alert" class="alert error hidden" role="alert"></div>
+
+      <section class="page-head">
+        <span class="eyebrow">Takip</span>
+        <h1>Eğitim ilerlemem</h1>
+        <p class="muted">
+          İzlediğiniz süreler otomatik kaydedilir. Bir video, süresinin
+          <span id="threshold-text">90</span>%'ı izlendiğinde tamamlanmış sayılır.
+        </p>
+      </section>
+
+      <section class="stat-cards" id="stat-cards"></section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Konu bazlı durum</h2>
+          <a class="btn light small" href="/dashboard.html">Eğitimlere git</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Konu</th>
+                <th>Videolar</th>
+                <th>İlerleme</th>
+                <th>Durum</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="progress-body">
+              <tr>
+                <td colspan="5" class="muted">Yükleniyor…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card" id="certificate-card" hidden>
+          <div class="card-header">
+            <div>
+              <h3>🎉 Tüm eğitimleri tamamladınız</h3>
+              <p class="muted small" style="margin: 0">
+                Tüm konuları ve videoları tamamladınız. Harika iş çıkardınız!
+              </p>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn" href="/dashboard.html">Eğitimleri tekrar gözden geçir</a>
+            <button class="btn light" type="button" onclick="window.print()">Özeti yazdır</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-footer></footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/progress.js"></script>
+  </body>
+</html>

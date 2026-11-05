@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eğitimler — Yeni Doğan Bakım Akademisi</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar" data-topbar></header>
+
+    <main class="container">
+      <div id="page-alert" class="alert error hidden" role="alert"></div>
+
+      <section class="hero" id="hero" hidden>
+        <div>
+          <span class="eyebrow">Hoş geldiniz</span>
+          <h1 id="hero-title">Eğitimlere başlayalım</h1>
+          <p id="hero-text">
+            Konuları sırayla izleyebilir, dilediğiniz zaman kaldığınız yerden devam edebilirsiniz.
+          </p>
+          <div class="btn-row">
+            <a class="btn" id="hero-cta" href="/dashboard.html">İlk konuya başla</a>
+            <a class="btn light" href="/progress.html">İlerlememi gör</a>
+          </div>
+        </div>
+        <div class="hero-stats" id="hero-stats"></div>
+      </section>
+
+      <section class="section">
+        <div class="card-header">
+          <div>
+            <h2>Eğitim konuları</h2>
+            <p class="muted small" style="margin: 0">
+              Toplam <span id="overall-percent">0</span>% tamamlandı
+            </p>
+          </div>
+          <div class="report-cell" style="min-width: 180px">
+            <div class="progress accent" style="flex: 1">
+              <span id="overall-bar" style="width: 0%"></span>
+            </div>
+          </div>
+        </div>
+        <div class="topic-grid" id="topic-grid">
+          <div class="empty-state">
+            <span class="emoji">⏳</span>
+            Konular yükleniyor…
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="password-section" hidden>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3>Şifremi değiştir</h3>
+              <p class="muted small" style="margin: 0">
+                Güvenliğiniz için ilk girişte şifrenizi değiştirmeniz önerilir.
+              </p>
+            </div>
+          </div>
+          <form id="password-form" class="inline-form">
+            <div class="field">
+              <label for="current-password">Mevcut şifre</label>
+              <input type="password" id="current-password" autocomplete="current-password" required />
+            </div>
+            <div class="field">
+              <label for="new-password">Yeni şifre</label>
+              <input type="password" id="new-password" autocomplete="new-password" minlength="6" required />
+            </div>
+            <div class="field">
+              <label for="repeat-password">Yeni şifre (tekrar)</label>
+              <input type="password" id="repeat-password" autocomplete="new-password" minlength="6" required />
+            </div>
+            <div class="field">
+              <button class="btn" type="submit" id="password-submit">Şifreyi güncelle</button>
+            </div>
+          </form>
+          <div id="password-alert" class="alert hidden" role="status"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-footer></footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

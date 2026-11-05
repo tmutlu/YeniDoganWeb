@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Konu — Yeni Doğan Bakım Akademisi</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar" data-topbar></header>
+
+    <main class="container">
+      <div id="page-alert" class="alert error hidden" role="alert"></div>
+
+      <section class="page-head">
+        <p class="small muted" style="margin-bottom: 6px">
+          <a href="/dashboard.html">← Tüm konular</a>
+        </p>
+        <div class="card-header" style="margin-bottom: 6px">
+          <div style="display: flex; gap: 14px; align-items: center; min-width: 0">
+            <span class="topic-icon" id="topic-icon" style="font-size: 1.5rem">📘</span>
+            <div style="min-width: 0">
+              <h1 id="topic-title" style="margin: 0">Yükleniyor…</h1>
+              <p class="muted" id="topic-description" style="margin: 4px 0 0"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-bottom: 20px">
+        <div class="progress-line">
+          <span id="topic-status-text">-</span>
+          <span id="topic-percent-text">%0</span>
+        </div>
+        <div class="progress accent" style="height: 12px">
+          <span id="topic-bar" style="width: 0%"></span>
+        </div>
+        <div class="btn-row" style="margin-top: 16px">
+          <a class="btn" id="start-btn" href="#" hidden>İlk videoyu izle</a>
+          <a class="btn light" id="next-btn" href="#" hidden>Sonraki konu</a>
+          <a class="btn light" href="/progress.html">İlerlememi gör</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Eğitim videoları</h2>
+          <span class="badge" id="video-count-badge">0 video</span>
+        </div>
+        <div class="playlist" id="video-list">
+          <div class="empty-state">
+            <span class="emoji">⏳</span>
+            Videolar yükleniyor…
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="topic-missing" hidden>
+        <div class="empty-state">
+          <span class="emoji">🔍</span>
+          Bu konu bulunamadı. <a href="/dashboard.html">Eğitim listesine dön</a>.
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-footer></footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/topic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video — Yeni Doğan Bakım Akademisi</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar" data-topbar></header>
+
+    <main class="container">
+      <div id="page-alert" class="alert error hidden" role="alert"></div>
+
+      <div class="player-layout">
+        <div>
+          <div class="player-frame" id="player-frame">
+            <div class="player-placeholder">Video yükleniyor…</div>
+          </div>
+
+          <div class="watch-panel">
+            <p class="small muted" style="margin: 0">
+              <a id="topic-link" href="/dashboard.html">← Konuya dön</a>
+            </p>
+            <h1 id="video-title" style="margin: 0; font-size: 1.4rem">Yükleniyor…</h1>
+            <p id="video-description" class="muted small" style="margin: 0"></p>
+
+            <div id="provider-note" class="watch-note hidden"></div>
+
+            <div class="watch-status">
+              <span class="live-dot paused" id="track-dot"></span>
+              <span class="small muted" id="track-text">İzleme kaydı bekleniyor…</span>
+              <span class="badge" id="video-badge">Başlanmadı</span>
+            </div>
+
+            <div>
+              <div class="progress-line">
+                <span id="video-progress-label">%0 izlendi</span>
+                <span id="video-progress-time"></span>
+              </div>
+              <div class="progress accent">
+                <span id="video-bar" style="width: 0%"></span>
+              </div>
+            </div>
+
+            <div class="btn-row" id="player-actions">
+              <button class="btn" type="button" id="complete-btn" hidden>Videoyu tamamladım</button>
+              <a class="btn light" id="prev-link" href="#" hidden>← Önceki video</a>
+              <a class="btn" id="next-link" href="#" hidden>Sonraki video →</a>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 id="playlist-title" style="margin: 0">Konu videoları</h3>
+                <span class="small muted" id="playlist-topic"></span>
+              </div>
+            </div>
+            <div class="playlist" id="playlist">
+              <div class="muted small">Yükleniyor…</div>
+            </div>
+            <p class="small muted" style="margin: 14px 0 0">
+              Bir video süresinin <span id="threshold-text">90</span>%'ı izlendiğinde otomatik olarak
+              tamamlanır.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer" data-footer></footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/watch.js"></script>
+  </body>
+</html>
